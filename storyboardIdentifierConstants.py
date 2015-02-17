@@ -49,7 +49,6 @@ identifierNames = list(set(identifierNames))
 
 codeBodyString = identifierNamesToConstantCodeString(identifierNames)
 implementationFileString = buildImplementationFileStringFromCodeBody(codeBodyString)
-print implementationFileString
 
 with open('StoryboardIdentifiers.m', 'w+') as f:
     f.truncate()
@@ -58,9 +57,12 @@ with open('StoryboardIdentifiers.m', 'w+') as f:
 
 codeExternString = identifierNamesToExternConstantsString(identifierNames)
 interfaceFileString = buildInterfaceFileStringFromCodeBody(codeExternString)
-print interfaceFileString
 
 with open('StoryboardIdentifiers.h', 'w+') as f:
     f.truncate()
     f.write(interfaceFileString)
     f.close()
+
+#print implementationFileString
+#print interfaceFileString
+

@@ -15,7 +15,6 @@
 		960AA5111A929500003FF6B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960AA50F1A929500003FF6B2 /* LaunchScreen.xib */; };
 		960AA51D1A929500003FF6B2 /* StoryboardBuildScriptTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 960AA51C1A929500003FF6B2 /* StoryboardBuildScriptTestTests.m */; };
 		960AA54B1A92E3B8003FF6B2 /* StoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 960AA54A1A92E3B8003FF6B2 /* StoryboardIdentifiers.m */; };
-		960AA54E1A92E942003FF6B2 /* GameFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960AA54C1A92E942003FF6B2 /* GameFlow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 		960AA51C1A929500003FF6B2 /* StoryboardBuildScriptTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardBuildScriptTestTests.m; sourceTree = "<group>"; };
 		960AA5491A92E3B8003FF6B2 /* StoryboardIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardIdentifiers.h; sourceTree = SOURCE_ROOT; };
 		960AA54A1A92E3B8003FF6B2 /* StoryboardIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryboardIdentifiers.m; sourceTree = SOURCE_ROOT; };
-		960AA54D1A92E942003FF6B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameFlow.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 				960AA50D1A929500003FF6B2 /* Images.xcassets */,
 				960AA50F1A929500003FF6B2 /* LaunchScreen.xib */,
 				960AA5001A929500003FF6B2 /* Supporting Files */,
-				960AA54C1A92E942003FF6B2 /* GameFlow.storyboard */,
 			);
 			path = StoryboardBuildScriptTest;
 			sourceTree = "<group>";
@@ -208,7 +205,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960AA54E1A92E942003FF6B2 /* GameFlow.storyboard in Resources */,
 				960AA50C1A929500003FF6B2 /* Main.storyboard in Resources */,
 				960AA5111A929500003FF6B2 /* LaunchScreen.xib in Resources */,
 				960AA50E1A929500003FF6B2 /* Images.xcassets in Resources */,
@@ -285,14 +281,6 @@
 				960AA5101A929500003FF6B2 /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		960AA54C1A92E942003FF6B2 /* GameFlow.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				960AA54D1A92E942003FF6B2 /* Base */,
-			);
-			name = GameFlow.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
