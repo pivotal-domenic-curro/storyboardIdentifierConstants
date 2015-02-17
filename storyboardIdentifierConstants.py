@@ -33,14 +33,19 @@ def buildInterfaceFileStringFromCodeBody(Bodystring):
 
 #--- script begin ---
 
-data = 0
-with open ("./StoryboardBuildScriptTest/Base.lproj/Main.storyboard", "r") as myfile:
-	data=myfile.readlines()    
+import glob
+storyboardFileNames = glob.glob("./StoryboardBuildScriptTest/Base.lproj/*.storyboard")
 
 identifierNames = []
 
-for line in data:
-	identifierNames = stripOutIdentifierNames(data)
+for storyboardName in storyboardFileNames:
+	data = 0
+	with open (storyboardName, "r") as myfile:
+		data=myfile.readlines()
+
+	identifierNames = identifierNames + stripOutIdentifierNames(data)
+
+identifierNames = list(set(identifierNames))
 
 codeBodyString = identifierNamesToConstantCodeString(identifierNames)
 implementationFileString = buildImplementationFileStringFromCodeBody(codeBodyString)
@@ -59,6 +64,3 @@ with open('StoryboardIdentifiers.h', 'w+') as f:
     f.truncate()
     f.write(interfaceFileString)
     f.close()
-
-import glob
-print glob.glob("./StoryboardBuildScriptTest/Base.lproj/*.storyboard")
