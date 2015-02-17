@@ -2,6 +2,7 @@
 
 @implementation StoryboardIdentifiers
 
+NSString * const kMikemikemike = @"mikemikemike";
 NSString * const kAstoryboardidentifier = @"aStoryboardIdentifier";
 
 @end
