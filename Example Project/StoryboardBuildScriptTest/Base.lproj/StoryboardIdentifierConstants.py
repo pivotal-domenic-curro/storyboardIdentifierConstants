@@ -19,8 +19,14 @@ def identifierNamesToConstantCodeString(identifierNames):
 		resultCodeString = resultCodeString + "NSString * const k" + identifierName.title() + " = @\"" + identifierName + "\";\n"
 	return resultCodeString
 
+def storyboardNamesToConstantCodeString(storyboardNames):
+	resultCodeString = ""
+	for storyboardName in storyboardNames:
+		resultCodeString = resultCodeString + "NSString * const k" + storyboardName.title() + "Storyboard = @\"" + storyboardName + "\";\n"
+	return resultCodeString
+
 def buildImplementationFileStringFromCodeBody(Bodystring):
-	return "#import \"StoryboardIdentifiers.h\"\n\n@implementation StoryboardIdentifiers\n\n" + Bodystring + "\n" + "@end"
+	return "#import \"StoryboardIdentifiers.h\"\n\n" + Bodystring
 
 def identifierNamesToExternConstantsString(identifierNames):
 	resultCodeString = ""
@@ -28,13 +34,25 @@ def identifierNamesToExternConstantsString(identifierNames):
 		resultCodeString = resultCodeString + "extern NSString * const k" + identifierName.title() + ";\n"
 	return resultCodeString
 
+def storyboardNamesToExternConstantsString(storyboardNames):
+	resultCodeString = ""
+	for storyboardName in storyboardNames:
+		resultCodeString = resultCodeString + "extern NSString * const k" + storyboardName.title() + "Storyboard;\n"
+	return resultCodeString
+
 def buildInterfaceFileStringFromCodeBody(Bodystring):
-	return "#import <Foundation/Foundation.h>\n\n@interface StoryboardIdentifiers : NSObject\n\n" + Bodystring + "\n" + "@end"
+	return "#import <Foundation/Foundation.h>\n\n" + Bodystring
 
 #--- script begin ---
 
 import glob
 storyboardFileNames = glob.glob("./*.storyboard")
+
+strippedStoryboardNames = []
+
+for storyboardFileName in storyboardFileNames:
+    strippedName = storyboardFileName.split("/")[-1].replace(".storyboard","")
+    strippedStoryboardNames.append(strippedName)
 
 identifierNames = []
 
@@ -47,7 +65,7 @@ for storyboardName in storyboardFileNames:
 
 identifierNames = list(set(identifierNames))
 
-codeBodyString = identifierNamesToConstantCodeString(identifierNames)
+codeBodyString =  storyboardNamesToConstantCodeString(strippedStoryboardNames) + "\n\n" + identifierNamesToConstantCodeString(identifierNames)
 implementationFileString = buildImplementationFileStringFromCodeBody(codeBodyString)
 
 with open('StoryboardIdentifiers.m', 'w+') as f:
@@ -55,7 +73,7 @@ with open('StoryboardIdentifiers.m', 'w+') as f:
     f.write(implementationFileString)
     f.close()
 
-codeExternString = identifierNamesToExternConstantsString(identifierNames)
+codeExternString = storyboardNamesToExternConstantsString(strippedStoryboardNames) + "\n\n" + identifierNamesToExternConstantsString(identifierNames)
 interfaceFileString = buildInterfaceFileStringFromCodeBody(codeExternString)
 
 with open('StoryboardIdentifiers.h', 'w+') as f:

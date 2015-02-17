@@ -1,8 +1,8 @@
 #import "StoryboardIdentifiers.h"
 
-@implementation StoryboardIdentifiers
+NSString * const kMainStoryboard = @"Main";
+NSString * const kOtherboardStoryboard = @"OtherBoard";
+
 
 NSString * const kMikemikemike = @"mikemikemike";
 NSString * const kAstoryboardidentifier = @"aStoryboardIdentifier";
-
-@end

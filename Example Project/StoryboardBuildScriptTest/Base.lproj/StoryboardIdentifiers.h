@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@interface StoryboardIdentifiers : NSObject
+extern NSString * const kMainStoryboard;
+extern NSString * const kOtherboardStoryboard;
+
 
 extern NSString * const kMikemikemike;
 extern NSString * const kAstoryboardidentifier;
-
-@end
