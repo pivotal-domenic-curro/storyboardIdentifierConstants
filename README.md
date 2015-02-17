@@ -1,5 +1,5 @@
 # storyboardIdentifierConstants
-A python script that can be added to Xcode's run script to generate storyboard identifier files that auto maintain a list of segue identifiers as k-constants.
+A python script that can be added to Xcode's run script to generate storyboard identifier files that auto maintain a list of segue identifiers as k-constants.  This script works across multiple storyboards.
 
 #Installation
 1. In the left bar in Xcode, select the folder icon.
