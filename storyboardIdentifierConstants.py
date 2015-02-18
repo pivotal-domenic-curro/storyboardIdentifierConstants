@@ -48,19 +48,14 @@ import os
 import sys
 rootdir = os.path.dirname(os.path.realpath(__file__))
 
-#with open('output.txt','w') as fout:
+
+storyboardFileNames = []
+
 for root, subFolders, files in os.walk(rootdir):
 	for afile in files:
 		if ".storyboard" in afile:
-			print os.path.join(root, afile)
+			storyboardFileNames.append( os.path.join(root, afile) )
 
-    #if 'data.txt' in files:
-     #   with open(os.path.join(root, 'data.txt'), 'r') as fin:
-      #      for lines in fin:
-       #         dosomething()
-
-import glob
-storyboardFileNames = glob.glob("./*.storyboard")
 
 strippedStoryboardNames = []
 
